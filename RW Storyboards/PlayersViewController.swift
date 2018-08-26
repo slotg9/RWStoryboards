@@ -1,17 +1,26 @@
-//
-//  PlayersViewController.swift
-//  RW Storyboards
-//
-//  Created by Admin on 8/19/18.
-//  Copyright © 2018 Guest account. All rights reserved.
-//
-
 import UIKit
 
 class PlayersViewController: UITableViewController {
 
     // MARK: - Properties
     var players = SampleData.generatePlayersData()
+}
+
+extension PlayersViewController {
+    
+    @IBAction func cancelToPlayersViewController(_ segue: UIStoryboardSegue) {
+    }
+    
+    @IBAction func savePlayerDetail(_ segue: UIStoryboardSegue) {
+        
+        guard let playerDetailsViewController = segue.source as? PlayerDetailsViewController,
+            let player = playerDetailsViewController.player else {
+                return
+        }
+        players.append(player)
+        let indexPath = IndexPath(row: players.count - 1, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+    }
 }
 
 // MARK: - UITableViewDataSource

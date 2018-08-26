@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  RW Storyboards
-//
-//  Created by Admin on 8/19/18.
-//  Copyright © 2018 Guest account. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
